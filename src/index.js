@@ -24,19 +24,19 @@ function makeCounter(initialValue, step) {
 
 
 
-    // function saveSum() {
-//     let sum = 0;
+    function saveSum() {
+    let sum = 0;
   
-//     return function(a) {
-//       return sum += a; 
-//     };
-//   }
+        return function(a) {
+        return sum += a; 
+        };
+    };
   
-//   let adder = saveSum();
+    let adder = saveSum();
   
-//   console.log( adder(2) ); 
-//   console.log( adder(5) ); 
-//   console.log( adder(11) ); 
+    console.log( adder(2) ); 
+    console.log( adder(5) ); 
+    console.log( adder(11) ); 
 
   
  
