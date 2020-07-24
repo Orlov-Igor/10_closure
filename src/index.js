@@ -1,30 +1,4 @@
-function makeCounter(initialValue, step) {
-    
-    let count = initialValue || 0;
-   
-    makeCounter.prototype.increment = function () {
-        count += (step || 1);
-    };
-    makeCounter.prototype.reset = function () {
-        count = 0;
-    };
-    makeCounter.prototype.getValue = function () {
-        return count
-    };
-}
-     
-    let counter = new makeCounter(5, 2);
-
-    counter.increment();
-    counter.increment();
-    counter.increment();
-    console.log( counter.getValue() );
-    counter.reset();
-    console.log( counter.getValue() );
-
-
-
-    function saveSum() {
+function saveSum() {
     let sum = 0;
   
         return function(a) {
@@ -34,10 +8,35 @@ function makeCounter(initialValue, step) {
   
     let adder = saveSum();
   
-    console.log( adder(2) ); 
-    console.log( adder(5) ); 
-    console.log( adder(11) ); 
+console.log( adder(2) ); 
+console.log( adder(5) ); 
+console.log( adder(11) ); 
 
-  
+
+
+function createCounter(initialValue = 0, step = 1) {
+    let count = initialValue;
+         
+        const fn = function() {
+            return count += step;
+        };
+        
+        fn.reset = function() {
+            return count = initialValue;
+        };
+    return fn;
+};
  
+const counter = createCounter(2, 10);
+const counter2 = createCounter();
+
+console.log(counter());
+console.log(counter());
+console.log(counter.reset());
+console.log(counter());
+console.log(counter2());
+console.log(counter2());
+console.log(counter());
+
+
   
